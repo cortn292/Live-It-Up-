@@ -1,12 +1,13 @@
 const arenaChannels = [
-    { name: 'Staten Island', url: 'https://api.are.na/v3/channels/live-it-up-staten-island/contents?per=100' },
-    { name: 'Bronx', url: 'https://api.are.na/v3/channels/live-it-up-bronx/contents?per=100' },
-    { name: 'Manhattan', url: 'https://api.are.na/v3/channels/live-it-up-manhattan/contents?per=100' },
-    { name: 'Queens', url: 'https://api.are.na/v3/channels/live-it-up-queens/contents?per=100' },
-    { name: 'Brooklyn', url: 'https://api.are.na/v3/channels/live-it-up-brooklyn/contents?per=100' },
+    { name: 'Staten Island', url: 'https://api.are.na/v3/channels/live-it-up-staten-island/contents?per=100', key: 'staten-island' },
+    { name: 'Bronx', url: 'https://api.are.na/v3/channels/live-it-up-bronx/contents?per=100', key: 'bronx' },
+    { name: 'Manhattan', url: 'https://api.are.na/v3/channels/live-it-up-manhattan/contents?per=100', key: 'manhattan' },
+    { name: 'Queens', url: 'https://api.are.na/v3/channels/live-it-up-queens/contents?per=100', key: 'queens' },
+    { name: 'Brooklyn', url: 'https://api.are.na/v3/channels/live-it-up-brooklyn/contents?per=100', key: 'brooklyn' },
 ];
 
 const container = document.getElementById('image-container');
+const select = document.getElementById('borough-select');
 
 function getImageUrl(block) {
     return (
@@ -78,11 +79,11 @@ function createChannelSection(name, items) {
     return section;
 }
 
-async function getImages() {
+async function getImages(channelsToLoad) {
     container.innerHTML = '';
 
     const responses = await Promise.allSettled(
-        arenaChannels.map(channel =>
+        channelsToLoad.map(channel =>
             fetch(channel.url)
                 .then(resp => {
                     if (!resp.ok) {
@@ -95,7 +96,7 @@ async function getImages() {
     );
 
     responses.forEach((result, index) => {
-        const channelName = arenaChannels[index].name;
+        const channelName = channelsToLoad[index].name;
         if (result.status === 'fulfilled') {
             const section = createChannelSection(channelName, result.value.items);
             container.appendChild(section);
@@ -114,4 +115,19 @@ async function getImages() {
     });
 }
 
-getImages();
+function handleSelection() {
+    const selectedValue = select.value;
+    if (selectedValue === 'all') {
+        getImages(arenaChannels);
+    } else {
+        const selectedChannel = arenaChannels.find(channel => channel.key === selectedValue);
+        if (selectedChannel) {
+            getImages([selectedChannel]);
+        }
+    }
+}
+
+select.addEventListener('change', handleSelection);
+
+
+getImages(arenaChannels);

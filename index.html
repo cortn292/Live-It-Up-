@@ -7,9 +7,27 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-
+ 
+    <header id="site-header">
+        <div id="header-inner">
+            <div id="logo">LIVE IT UP <span>NYC</span></div>
+            <div id="controls">
+                <label for="borough-select">BOROUGH</label>
+                <select id="borough-select">
+                    <option value="all">All Boroughs</option>
+                    <option value="staten-island">Staten Island</option>
+                    <option value="bronx">Bronx</option>
+                    <option value="manhattan">Manhattan</option>
+                    <option value="queens">Queens</option>
+                    <option value="brooklyn">Brooklyn</option>
+                </select>
+            </div>
+        </div>
+    </header>
+ 
     <div id="image-container"></div>
-
+ 
     <script src="script.js"></script>
+    <script src="upload.js"></script>
 </body>
 </html>
