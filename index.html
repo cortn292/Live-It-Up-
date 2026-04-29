@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIVE IT UP! — NYC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Bungee&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+    <div class="glow-blob g1"></div>
+    <div class="glow-blob g2"></div>
+    <div class="glow-blob g3"></div>
+    <div class="chat-wrap" id="chatWrap"></div>
+  </div>
+
+   <div id="page2" class="page">
+    <div class="p2-top">
+      <div class="site-title">LIVE IT UP!</div>
+      <div class="site-sub">NEW YORK CITY RIGHT NOW! LIVEEEEE!</div>
+    </div>
+ 
+    <div class="borough-bar">
+      <button class="b-btn active" data-slug="all">ALL NYC</button>
+      <button class="b-btn" data-slug="live-it-up-manhattan">MANHATTAN</button>
+      <button class="b-btn" data-slug="live-it-up-brooklyn">BROOKLYN</button>
+      <button class="b-btn" data-slug="live-it-up-queens">QUEENS</button>
+      <button class="b-btn" data-slug="live-it-up-bronx">THE BRONX</button>
+      <button class="b-btn" data-slug="live-it-up-staten-island">STATEN ISLAND</button>
+    </div>
+ 
+    <div class="upload-bar">
+      <button class="cam-btn" id="camBtn"> SNAP &amp; POST</button>
+      <span class="upload-hint">drop your night right here!</span>
+      <div class="live-indicator">
+      </div>
+    </div>
+ 
+    <div class="feed-area" id="feedArea">
+      <div class="collage" id="collage">
+        <div class="feed-msg" id="feedMsg">LOADING THE NIGHT...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="camModal">
+    <div class="modal-box">
+      <div class="modal-title">SNAP &amp; POST</div>
+      <video class="modal-video" id="camVideo" autoplay playsinline muted></video>
+      <img class="modal-preview" id="camPreview" alt="preview"/>
+      <canvas class="modal-canvas" id="camCanvas"></canvas>
+      <select class="borough-select" id="boroughSelect">
+        <option value="live-it-up-manhattan">Manhattan</option>
+        <option value="live-it-up-brooklyn">Brooklyn</option>
+        <option value="live-it-up-queens">Queens</option>
+        <option value="live-it-up-bronx">The Bronx</option>
+        <option value="live-it-up-staten-island">Staten Island</option>
+      </select>
+      <div class="modal-actions">
+        <button class="modal-btn snap"      id="snapBtn">SNAP</button>
+        <button class="modal-btn retry"     id="retryBtn">Wanna retake it?</button>
+        <button class="modal-btn post"      id="postBtn">POST IT!!!</button>
+        <button class="modal-btn close-btn" id="closeModal">Close</button>
+      </div>
+      <div class="modal-status" id="modalStatus"></div>
+    </div>
+  </div>
+ 
+  <div class="toast" id="toast"></div>
+ 
+  <script src="app.js"></script>
+</body>
+</html>
