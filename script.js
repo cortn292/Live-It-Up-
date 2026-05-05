@@ -1,9 +1,9 @@
 const arenaChannels = [
-    { name: 'Staten Island', url: 'https://api.are.na/v3/channels/live-it-up-staten-island/contents?per=100', key: 'staten-island' },
-    { name: 'Bronx', url: 'https://api.are.na/v3/channels/live-it-up-bronx/contents?per=100', key: 'bronx' },
     { name: 'Manhattan', url: 'https://api.are.na/v3/channels/live-it-up-manhattan/contents?per=100', key: 'manhattan' },
     { name: 'Queens', url: 'https://api.are.na/v3/channels/live-it-up-queens/contents?per=100', key: 'queens' },
     { name: 'Brooklyn', url: 'https://api.are.na/v3/channels/live-it-up-brooklyn/contents?per=100', key: 'brooklyn' },
+    { name: 'Bronx', url: 'https://api.are.na/v3/channels/live-it-up-bronx/contents?per=100', key: 'bronx' },
+    { name: 'Staten Island', url: 'https://api.are.na/v3/channels/live-it-up-staten-island/contents?per=100', key: 'staten-island' }
 ];
 
 const container = document.getElementById('image-container');
