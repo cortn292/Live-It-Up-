@@ -29,11 +29,14 @@ body {
 
 p {
     margin-bottom: 16px;
-    font-family: 'Bungee', sans-serif;
+    font-family: poppins, sans-serif;
     font-size: 20px;
-    line-height: 1.5;
+    line-height: center;
     text-align: center;
-    color: var(--neon-dim)
+    padding: 0 12px;
+    margin: 24px auto;
+    max-width: 800px;
+    color: var(--text)
 
 }
  
